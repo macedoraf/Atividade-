@@ -1,14 +1,19 @@
 package br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.listagemUsuario;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -51,13 +56,9 @@ public class ListarUsuarioFragment extends BaseFragment implements ListaUsuarioV
         mActivity.toolbar.setTitle(R.string.lista_de_usuarios);
         setupRecyclerView();
         setupAdapter();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
         presenter.onStart();
     }
+
 
     private void setupAdapter() {
         adapter = new UsuarioAdapter(this);
@@ -78,6 +79,7 @@ public class ListarUsuarioFragment extends BaseFragment implements ListaUsuarioV
     public void update(List<Usuario> usuarioList) {
         this.usuarioList.clear();
         this.usuarioList.addAll(usuarioList);
+        this.hideLoading();
     }
 
     @Override
@@ -103,9 +105,30 @@ public class ListarUsuarioFragment extends BaseFragment implements ListaUsuarioV
     }
 
     @Override
-    public void onClickUpdateSenha() {
+    public void onClickUpdateSenha(final Usuario usuario, final int position) {
+        LinearLayout view = new LinearLayout(getContext());
+        final EditText edtNovaSenha = new EditText(getContext());
+        edtNovaSenha.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+        view.addView(edtNovaSenha);
+        AlertDialog alertDialog = new AlertDialog.Builder(mActivity)
+                .setTitle("Alterar senha")
+                .setMessage("Digite sua nova senha")
+                .setView(view)
+                .setPositiveButton("Salvar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(!edtNovaSenha.getText().toString().isEmpty()){
+                            usuario.setPassword(edtNovaSenha.getText().toString());
+                        }
+                        presenter.updateUserPassword(usuario,position);
+                    }
+                })
+                .setNegativeButton("Cancelar",null)
+                .create();
 
+        alertDialog.show();
     }
+
 
     @Override
     public void updateAdapter(int position) {
@@ -116,6 +139,8 @@ public class ListarUsuarioFragment extends BaseFragment implements ListaUsuarioV
     public void updateAdapter() {
         adapter.notifyDataSetChanged();
     }
+
+
 
 
 }

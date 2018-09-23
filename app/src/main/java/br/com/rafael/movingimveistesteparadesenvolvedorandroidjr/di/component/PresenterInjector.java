@@ -7,6 +7,7 @@ import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.di.module.Prefe
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.cadastroUsuario.CadastroUsuarioPresenter;
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.listagemUsuario.ListarUsuarioPresenter;
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.login.AuthenticatePresenter;
+import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.navigator.NavigatorPresenter;
 import dagger.Component;
 
 @Singleton
@@ -18,6 +19,8 @@ public interface PresenterInjector {
     void injectCadastroPresenter(CadastroUsuarioPresenter authenticatePresenter);
 
     void injectListaUsuarioPresenter(ListarUsuarioPresenter listarUsuarioPresenter);
+
+    void injectNavigatorPresenter(NavigatorPresenter navigatorPresenter);
 
     @Component.Builder
     interface Builder{

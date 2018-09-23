@@ -7,6 +7,8 @@ import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.di.module.Prefe
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.cadastroUsuario.CadastroUsuarioPresenter;
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.listagemUsuario.ListarUsuarioPresenter;
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.login.AuthenticatePresenter;
+import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.navigator.NavigatorActivity;
+import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.navigator.NavigatorPresenter;
 
 public class  BasePresenter<V extends BaseView>{
 
@@ -23,6 +25,11 @@ public class  BasePresenter<V extends BaseView>{
 
     }
 
+    /**
+     * Não descobri um jeito melhor de injetar ainda,
+     * tentei fazer com generic não deu certo más penso
+     * em trocar ssa forma de injeção para que eu tenha que configurar uma vez
+     */
     private void inject() {
        if(this instanceof AuthenticatePresenter){
            injector.injectAuthenticate((AuthenticatePresenter) this);
@@ -30,6 +37,9 @@ public class  BasePresenter<V extends BaseView>{
            injector.injectCadastroPresenter((CadastroUsuarioPresenter) this);
        }else if(this instanceof ListarUsuarioPresenter){
            injector.injectListaUsuarioPresenter((ListarUsuarioPresenter)this);
+       }
+       else if(this instanceof NavigatorPresenter){
+           injector.injectNavigatorPresenter((NavigatorPresenter)this);
        }
 
 

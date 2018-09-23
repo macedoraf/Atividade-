@@ -1,5 +1,7 @@
 package br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.navigator;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -13,16 +15,19 @@ import android.view.MenuItem;
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.R;
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.base.BaseActivity;
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.listagemUsuario.ListarUsuarioFragment;
+import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.login.AuthenticateActivity;
 
-public class NavigatorActivity extends BaseActivity {
+public class NavigatorActivity extends BaseActivity implements NavigatorView {
 
     protected DrawerLayout drawerLayout;
     public Toolbar toolbar;
+    private NavigatorPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigator);
+        presenter = new NavigatorPresenter(this);
         initViews();
         setupListeners();
         setupToolbar();
@@ -86,7 +91,7 @@ public class NavigatorActivity extends BaseActivity {
                 montaViewUsuarios();
                 break;
             case R.id.action_logout:
-                logout();
+                presenter.logoutUser();
                 break;
             case R.id.action_mapa:
                 montaViewMapas();
@@ -99,13 +104,10 @@ public class NavigatorActivity extends BaseActivity {
 
     }
 
-    private void logout() {
-    }
 
     private void montaViewUsuarios() {
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         ListarUsuarioFragment listarUsuarioFragment = new ListarUsuarioFragment();
-        fragmentTransaction.addToBackStack("Assunto");
         fragmentTransaction.replace(R.id.frame, listarUsuarioFragment);
         fragmentTransaction.commit();
         closeDrawer();
@@ -123,5 +125,16 @@ public class NavigatorActivity extends BaseActivity {
         if (drawerLayout != null) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
+    }
+
+    @Override
+    public Context getContext() {
+        return getApplicationContext();
+    }
+
+    @Override
+    public void logout() {
+        startActivity(new Intent(this, AuthenticateActivity.class));
+        this.finish();
     }
 }

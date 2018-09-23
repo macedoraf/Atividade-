@@ -17,6 +17,8 @@ public class UsuarioHolder extends RecyclerView.ViewHolder implements View.OnCli
     private final TextView lblUsername;
     private final TextView lblSenha;
     private final ListaUsuarioView view;
+    private  Usuario usuario;
+    private int position;
 
     public UsuarioHolder(@NonNull View itemView, ListaUsuarioView view) {
         super(itemView);
@@ -28,17 +30,18 @@ public class UsuarioHolder extends RecyclerView.ViewHolder implements View.OnCli
         itemView.findViewById(R.id.cardView).setOnClickListener(this);
     }
 
-    public void bind(Usuario usuario){
+    public void bind(Usuario usuario, int position){
         lblId.setText(String.format("ID: %d", usuario.getId()));
         lblNome.setText(String.format("Nome: %s", usuario.getNome()));
         lblUsername.setText(String.format("Username: %s", usuario.getUsername()));
         lblSenha.setText(String.format("Senha:%s", usuario.getPassword()));
+        this.usuario = usuario;
 
 
     }
 
     @Override
     public void onClick(View view) {
-        this.view.onClickUpdateSenha();
+        this.view.onClickUpdateSenha(usuario,position);
     }
 }

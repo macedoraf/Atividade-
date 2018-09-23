@@ -17,7 +17,7 @@ public interface ListaUsuarioView extends BaseView {
 
     void onError(Throwable err);
 
-    void onClickUpdateSenha();
+    void onClickUpdateSenha(Usuario usuario, int position);
 
     void updateAdapter(int position);
 

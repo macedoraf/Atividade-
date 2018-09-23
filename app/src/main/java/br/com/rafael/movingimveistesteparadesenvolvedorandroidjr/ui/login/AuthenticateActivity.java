@@ -30,7 +30,6 @@ public class AuthenticateActivity extends BaseActivity implements AuthenticateVi
 
     private Button btnLogin;
 
-    public static final int CADASTRO_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +41,12 @@ public class AuthenticateActivity extends BaseActivity implements AuthenticateVi
         initViews();
         setupListeners();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        presenter.isUserLoggedIn();
     }
 
     private void setupListeners() {
@@ -76,21 +81,21 @@ public class AuthenticateActivity extends BaseActivity implements AuthenticateVi
         if(type != AuthenticateType.NOT_LOGGED){
             startNavigatorActivity();
         }else
-            Toast.makeText(this, "Teste", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Você está deslogado!", Toast.LENGTH_SHORT).show();
     }
 
     private void startActivityCadastro(){
-        startActivityForResult(new Intent(this, CadastroActivity.class),CADASTRO_CODE);
+        startActivity(new Intent(this, CadastroActivity.class));
     }
 
     @Override
     public void showLoading() {
-
+        Toast.makeText(this, "Show Loading", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void hideLoading() {
-
+        Toast.makeText(this, "Hide Loading", Toast.LENGTH_SHORT).show();
     }
 
     @Override

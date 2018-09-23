@@ -66,12 +66,8 @@ public class AuthenticatePresenter extends BasePresenter<AuthenticateView> {
     }
 
     public void isUserLoggedIn(){
-        preferencesHelper.getUserLoggedIn();
+        view.isUserLogged(preferencesHelper.getUserLoggedIn());
+
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        disposable.dispose();
-    }
 }
