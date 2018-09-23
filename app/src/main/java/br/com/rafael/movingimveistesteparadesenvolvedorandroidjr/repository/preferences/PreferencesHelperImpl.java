@@ -5,6 +5,13 @@ import android.content.SharedPreferences;
 
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.model.AuthenticateType;
 
+/**
+ * Normalmente quando gravo um Usuario no preferencias eu gravo um JSON dele e dps só serializo de volta, porém dessa
+ * forma eu acho mais organizado, apesar de ser trabalhoso, más evito de ter uma referencia estatica em memória e busco
+ * os dados do usuario de um arquivo, que me garante que o android não vai me derrubar essa referencia,
+ * ja tive problemas em aplicativos meus por isso, então essa foi a solução.
+ * Eu ultilizei um singleton no meu projeto más aqui preferi injetar a dependecia
+ */
 public class PreferencesHelperImpl implements PreferencesHelper {
 
     private final SharedPreferences sharedPreferences;

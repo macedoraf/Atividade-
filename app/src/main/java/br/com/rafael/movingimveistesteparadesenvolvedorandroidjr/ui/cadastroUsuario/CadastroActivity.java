@@ -18,6 +18,9 @@ import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.R;
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.base.BaseActivity;
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.model.Usuario;
 
+/**
+ * Activity de cadastro
+ */
 public class CadastroActivity extends BaseActivity implements View.OnClickListener, Cadastroview, TextWatcher {
 
     private TextInputEditText edtUsername;

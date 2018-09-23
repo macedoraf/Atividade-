@@ -14,6 +14,9 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * Presenter de cadastro
+ */
 public class CadastroUsuarioPresenter extends BasePresenter<Cadastroview> {
 
     @Inject

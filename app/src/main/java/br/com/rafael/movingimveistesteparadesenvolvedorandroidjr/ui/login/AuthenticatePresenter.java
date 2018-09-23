@@ -31,7 +31,11 @@ public class AuthenticatePresenter extends BasePresenter<AuthenticateView> {
     }
 
 
-
+    /**
+     * OBS: Não consegui recuperar o erro do banco e mostrar na tela usuario inválido.
+     * @param username
+     * @param senha
+     */
     public void validateEmailAndSenha(String username, String senha){
         disposable = usuarioDAO.findByUsernameAndSenha(username,senha)
                 .subscribeOn(Schedulers.io())

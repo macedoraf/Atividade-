@@ -10,6 +10,9 @@ import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.repository.data
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * Aqui é o módulo de Banco de Dados, nada de mais...
+ */
 @Module
 public class DatabaseModule {
 

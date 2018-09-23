@@ -17,6 +17,12 @@ import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.base.BaseActivi
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.listagemUsuario.ListarUsuarioFragment;
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.login.AuthenticateActivity;
 
+
+/**
+ * Gostaria de ter implementado um patter navigator, más não achei nenhum ainda na internet que me agrade,
+ * se você souber um ficarei grato se me mandasse, independente de tudo. kkkkkk
+ * Aqui eu dei um ctrl+C + Ctrl+V por que é bem massante essa activity
+ */
 public class NavigatorActivity extends BaseActivity implements NavigatorView {
 
     protected DrawerLayout drawerLayout;

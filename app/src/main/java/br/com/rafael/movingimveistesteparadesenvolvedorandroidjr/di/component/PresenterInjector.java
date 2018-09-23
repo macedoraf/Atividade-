@@ -10,6 +10,9 @@ import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.login.Authen
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.ui.navigator.NavigatorPresenter;
 import dagger.Component;
 
+/**
+ * Aqui acho que não tem muito oq explicar, é um Componete para injetar as dependecias na presenter
+ */
 @Singleton
 @Component(modules = {DatabaseModule.class, PreferencesModule.class})
 public interface PresenterInjector {

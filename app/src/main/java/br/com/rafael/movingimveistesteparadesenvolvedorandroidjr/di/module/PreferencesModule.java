@@ -8,6 +8,10 @@ import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.repository.pref
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * Aqui é o modulo de Preferencias,
+ * eu crio uma Interface Helper para me devolver os metodos que quero e dou bind apartir do HelperImpl
+ */
 @Module
 public class PreferencesModule {
 
