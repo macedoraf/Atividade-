@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Moving ImóveisTesteparaDesenvolvedorAndroidJr</string>
+    <string name="logout">Logout</string>
+    <string name="mapa">Mapa</string>
+    <string name="usuarios">Usuarios</string>
+    <string name="lista_de_usuarios">Lista de Usuarios</string>
 </resources>
