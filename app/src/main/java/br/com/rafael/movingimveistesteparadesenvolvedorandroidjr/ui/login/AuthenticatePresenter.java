@@ -12,6 +12,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
@@ -70,4 +71,10 @@ public class AuthenticatePresenter extends BasePresenter<AuthenticateView> {
 
     }
 
+    @Override
+    public void onDestroy() {
+        disposable.dispose();
+        super.onDestroy();
+
+    }
 }

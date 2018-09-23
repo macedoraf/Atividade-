@@ -10,6 +10,7 @@ import java.util.List;
 
 import br.com.rafael.movingimveistesteparadesenvolvedorandroidjr.model.Usuario;
 import io.reactivex.Flowable;
+import io.reactivex.Maybe;
 
 import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
@@ -29,5 +30,5 @@ public interface UsuarioDAO {
     Flowable<List<Usuario>> selectAll();
 
     @Query("SELECT * FROM Usuario WHERE username = :email AND password = :senha")
-    Flowable<Usuario> findByUsernameAndSenha(String email, String senha);
+    Maybe<Usuario> findByUsernameAndSenha(String email, String senha);
 }

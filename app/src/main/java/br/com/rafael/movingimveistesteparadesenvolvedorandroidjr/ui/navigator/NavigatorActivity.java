@@ -96,6 +96,9 @@ public class NavigatorActivity extends BaseActivity implements NavigatorView {
             case R.id.action_mapa:
                 montaViewMapas();
                 break;
+                default:
+                    openDrawer();
+                    break;
 
         }
     }
@@ -136,5 +139,11 @@ public class NavigatorActivity extends BaseActivity implements NavigatorView {
     public void logout() {
         startActivity(new Intent(this, AuthenticateActivity.class));
         this.finish();
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+            openDrawer();
+
+
+        return super.onOptionsItemSelected(item);
     }
 }
