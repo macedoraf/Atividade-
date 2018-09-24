@@ -59,11 +59,11 @@ public class ListarUsuarioFragment extends BaseFragment implements ListaUsuarioV
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mActivity.toolbar.setTitle(R.string.lista_de_usuarios);
         setupRecyclerView();
         setupAdapter();
 
     }
+
 
 
     private void setupAdapter() {
