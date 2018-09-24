@@ -35,9 +35,7 @@ public class AuthenticateActivity extends BaseActivity implements AuthenticateVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         presenter = new AuthenticatePresenter(this);
-
         initViews();
         setupListeners();
 

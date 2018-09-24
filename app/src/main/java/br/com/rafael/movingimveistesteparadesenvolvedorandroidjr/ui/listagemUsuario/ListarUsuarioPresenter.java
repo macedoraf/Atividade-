@@ -38,6 +38,7 @@ public class ListarUsuarioPresenter extends BasePresenter<ListaUsuarioView> {
                     @Override
                     public void accept(List<Usuario> usuarios) throws Exception {
                         view.update(usuarios);
+                        view.updateAdapter();
                     }
                 }, new Consumer<Throwable>() {
                     @Override
