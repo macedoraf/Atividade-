@@ -113,8 +113,11 @@ public class ListarUsuarioFragment extends BaseFragment implements ListaUsuarioV
     @Override
     public void onClickUpdateSenha(final Usuario usuario, final int position) {
         LinearLayout view = new LinearLayout(getContext());
+
+        final LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         final EditText edtNovaSenha = new EditText(getContext());
-        edtNovaSenha.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+        view.setLayoutParams(layoutParams);
+        edtNovaSenha.setLayoutParams(layoutParams);
         view.addView(edtNovaSenha);
         AlertDialog alertDialog = new AlertDialog.Builder(mActivity)
                 .setTitle("Alterar senha")
