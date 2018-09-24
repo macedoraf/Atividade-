@@ -77,7 +77,6 @@ public class AuthenticatePresenter extends BasePresenter<AuthenticateView> {
 
     @Override
     public void onDestroy() {
-        disposable.dispose();
         super.onDestroy();
 
     }
